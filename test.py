@@ -8,17 +8,14 @@ class FlaskTests(TestCase):
 
     # TODO -- write tests for every view function / feature!
 
-    # @classmethod
     def setUp(self):
         """Before each test..."""
+        print('\n***INSIDE SET UP CLASS***')
 
-        print('***INSIDE SET UP CLASS***')
-
-    # @classmethod
     def tearDown(self):
         """After each test...."""
 
-        print('***INSIDE TEARDOWN CLASS***')
+        print('***INSIDE TEAR DOWN CLASS***\n')
 
     def test_homepage(self):
         """Make sure info is in the session and HTML are showing/displayed"""
@@ -32,8 +29,8 @@ class FlaskTests(TestCase):
     def test_valid_word(self):
         """Make sure word is valid"""
         with app.test_client() as client:
-            with client.session_transaction() as sess:
-                sess['board'] = [
+            with client.session_transaction() as change_session:
+                change_session['board'] = [
                     ["C", "A", "T", "T", "T"],
                     ["C", "A", "T", "T", "T"],
                     ["C", "A", "T", "T", "T"],
