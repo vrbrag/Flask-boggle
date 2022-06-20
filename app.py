@@ -25,8 +25,9 @@ def check_word():
    """Check if word is in dictionary"""
 
    word = request.args.get('word') 
-   board = session['board']
-   # print(board)
+   # print(session.get('board'))
+   board = session.get('board')
+   
    response = boggle_game.check_valid_word(board, word)
    return jsonify({'result': response})
 
