@@ -35,12 +35,12 @@ async function handleSubmit(evt) {
    const resp = await axios.get('/check-word', { params: { word: word } })
 
    if (resp.data.result == 'not-word') {
-      let msg = `${word} is not a valid word`
+      let msg = `'${word}' is not a valid word`
       showMessage(msg)
       return
    }
    else if (resp.data.result == 'not-on-board') {
-      let msg = `${word} is not on board`
+      let msg = `'${word}' is not on board`
       showMessage(msg)
       return
    }
